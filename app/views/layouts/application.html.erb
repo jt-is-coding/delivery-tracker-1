@@ -24,6 +24,12 @@
       <a href="/users/sign_out">Sign out</a>
       <hr>
     <% end %>
+
+    <% if notice.present? %>
+      <div>
+        <%= notice %>
+      </div>
+    <% end%>
     <%= yield %>
   </body>
 </html>
