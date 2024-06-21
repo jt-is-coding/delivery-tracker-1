@@ -4,7 +4,11 @@ class DeliveriesController < ApplicationController
 
     @list_of_deliveries = matching_deliveries.order({ :created_at => :desc })
 
-    render({ :template => "deliveries/index" })
+    if current_user == nil
+      redirect_to("/users/sign_in")
+    else
+      render({ :template => "deliveries/index" })
+    end
   end
 
   def show
